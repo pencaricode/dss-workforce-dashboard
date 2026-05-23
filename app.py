@@ -210,17 +210,22 @@ left_col, right_col = st.columns(2)
 # =========================
 with left_col:
 
+    st.metric(
+        "Certainty Factor",
+        f"{cf:.3f}"
+    )
+
     gauge_fig = go.Figure(go.Indicator(
-        mode="gauge+number",
+        mode="gauge",
         value=cf,
-        title={'text': "Certainty Factor"},
+        title={'text': "Performance Gauge"},
         gauge={
             'axis': {'range': [-1, 1]},
-            'bar': {'thickness': 0.3},
+            'bar': {'color': "#2563EB", 'thickness': 0.3},
             'steps': [
-                {'range': [-1, -0.2], 'color': "red"},
-                {'range': [-0.2, 0.2], 'color': "yellow"},
-                {'range': [0.2, 1], 'color': "green"}
+                {'range': [-1, -0.2], 'color': "#EF4444"},
+                {'range': [-0.2, 0.2], 'color': "#FACC15"},
+                {'range': [0.2, 1], 'color': "#22C55E"}
             ],
         }
     ))
@@ -229,7 +234,8 @@ with left_col:
         paper_bgcolor="#FFFFFF",
         plot_bgcolor="#FFFFFF",
         font={'color': "#1E293B"},
-        height=400
+        height=350,
+        margin=dict(l=20, r=20, t=60, b=20)
     )
 
     st.plotly_chart(
