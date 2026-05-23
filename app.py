@@ -15,33 +15,37 @@ st.set_page_config(
 st.markdown("""
 <style>
 
-.main {
-    background-color: #0E1117;
-    color: white;
-}
-
 .stApp {
-    background-color: #0E1117;
+    background-color: #F5F7FA;
 }
 
 h1, h2, h3, h4 {
-    color: white;
+    color: #1E293B;
+}
+
+p, div {
+    color: #334155;
 }
 
 div[data-testid="metric-container"] {
-    background-color: #1E1E1E;
-    border: 1px solid #333333;
+    background-color: white;
+    border: 1px solid #E2E8F0;
     padding: 15px;
-    border-radius: 12px;
-    text-align: center;
+    border-radius: 14px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
 div[data-testid="metric-container"]:hover {
-    border: 1px solid #00D4FF;
+    border: 1px solid #2563EB;
 }
 
 .block-container {
     padding-top: 2rem;
+}
+
+section[data-testid="stSidebar"] {
+    background-color: white;
+    border-right: 1px solid #E2E8F0;
 }
 
 </style>
@@ -65,16 +69,17 @@ Monitoring:
 st.sidebar.success("🟢 System Active")
 st.markdown("""
 <div style='
-    background: linear-gradient(90deg, #00D4FF, #090979);
+    background: linear-gradient(90deg, #2563EB, #1D4ED8);
     padding: 20px;
     border-radius: 15px;
     margin-bottom: 20px;
 '>
     <h1 style='color:white;text-align:center;'>
-        AI-Based Workforce Performance DSS
+        DSS Workforce Performance Dashboard
     </h1>
+
     <p style='color:white;text-align:center;'>
-        Real-Time Monitoring & Decision Support System
+        Real-Time Workforce Monitoring & Decision Support System
     </p>
 </div>
 """, unsafe_allow_html=True)
