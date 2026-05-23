@@ -68,30 +68,23 @@ Monitoring:
 
 st.sidebar.success("🟢 System Active")
 st.markdown("""
-<div style='
+<div style="
     background: linear-gradient(90deg, #2563EB, #1D4ED8);
     padding: 20px;
     border-radius: 15px;
     margin-bottom: 20px;
-'>
+">
 
-    <h1 style='color:white;text-align:center;'>
-        DSS Workforce Performance Dashboard
-    </h1>
+<h1 style="color:white; text-align:center;">
+DSS Workforce Performance Dashboard
+</h1>
 
-    <p style='color:white;text-align:center;'>
-        Real-Time Workforce Monitoring & Decision Support System
-    </p>
+<p style="color:white; text-align:center;">
+Real-Time Workforce Monitoring & Decision Support System
+</p>
 
 </div>
 """, unsafe_allow_html=True)
-
-gauge_fig.update_layout(
-    paper_bgcolor="#FFFFFF",
-    plot_bgcolor="#FFFFFF",
-    font={'color': "#1E293B"},
-    height=400
-)
 # =========================
 # TITLE
 # =========================
@@ -232,13 +225,17 @@ with left_col:
         }
     ))
 
-    gauge_fig.update_layout(height=400)
+    gauge_fig.update_layout(
+        paper_bgcolor="#FFFFFF",
+        plot_bgcolor="#FFFFFF",
+        font={'color': "#1E293B"},
+        height=400
+    )
 
     st.plotly_chart(
         gauge_fig,
         use_container_width=True
     )
-
 # =========================
 # RADAR CHART
 # =========================
@@ -418,7 +415,10 @@ if os.path.exists("history.csv"):
         title="Certainty Factor Trend",
         xaxis_title="Evaluation Index",
         yaxis_title="CF Value",
-        height=400
+        height=400,
+        paper_bgcolor="#FFFFFF",
+        plot_bgcolor="#FFFFFF",
+        font={'color': "#1E293B"}
     )
 
     st.plotly_chart(
@@ -436,7 +436,10 @@ if os.path.exists("history.csv"):
             go.Pie(
                 labels=category_count.index,
                 values=category_count.values,
-                hole=0.4
+                hole=0.4,
+                marker=dict(
+                    colors=["#22C55E", "#EAB308", "#EF4444"]
+                )
             )
         ]
     )
