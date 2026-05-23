@@ -211,9 +211,15 @@ left_col, right_col = st.columns(2)
 with left_col:
 
     gauge_fig = go.Figure(go.Indicator(
-        mode="gauge",
+        mode="gauge+number",
         value=cf,
         title={'text': "Performance Gauge"},
+        number={
+            'font': {
+                'size': 42,
+                'color': "#1E293B"
+            }
+        },
         gauge={
             'axis': {'range': [-1, 1]},
             'bar': {
