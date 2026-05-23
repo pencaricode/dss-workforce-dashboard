@@ -74,6 +74,7 @@ st.markdown("""
     border-radius: 15px;
     margin-bottom: 20px;
 '>
+
     <h1 style='color:white;text-align:center;'>
         DSS Workforce Performance Dashboard
     </h1>
@@ -81,8 +82,16 @@ st.markdown("""
     <p style='color:white;text-align:center;'>
         Real-Time Workforce Monitoring & Decision Support System
     </p>
+
 </div>
 """, unsafe_allow_html=True)
+
+gauge_fig.update_layout(
+    paper_bgcolor="#FFFFFF",
+    plot_bgcolor="#FFFFFF",
+    font={'color': "#1E293B"},
+    height=400
+)
 # =========================
 # TITLE
 # =========================
@@ -245,7 +254,11 @@ with right_col:
     ))
 
     radar_fig.update_layout(
+        paper_bgcolor="#FFFFFF",
+        plot_bgcolor="#FFFFFF",
+        font={'color': "#1E293B"},
         polar=dict(
+            bgcolor="#FFFFFF",
             radialaxis=dict(
                 visible=True,
                 range=[0, 100]
@@ -253,7 +266,7 @@ with right_col:
         ),
         showlegend=False,
         height=400
-    )
+)
 
     st.plotly_chart(
         radar_fig,
@@ -284,7 +297,13 @@ summary_data = {
     ]
 }
 
-st.table(summary_data)
+summary_df = pd.DataFrame(summary_data)
+
+st.dataframe(
+    summary_df,
+    use_container_width=True,
+    hide_index=True
+)
 
 st.divider()
 
@@ -352,7 +371,10 @@ save_data = {
     "Bottleneck": bottleneck
 }
 
-if st.button("Save Evaluation"):
+if st.button(
+    "💾 Save Evaluation",
+    use_container_width=True
+):
 
     df_new = pd.DataFrame([save_data])
 
